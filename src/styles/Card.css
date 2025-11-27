@@ -1,0 +1,22 @@
+.card {
+    min-width: 12rem;
+    padding: 1rem;
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 5px;
+    box-shadow: 3px 5px 6px #00000055;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+figure {
+    display: flex;
+    flex-direction: column;
+}
+
+figcaption {
+    text-align: center;
+}
