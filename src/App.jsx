@@ -18,7 +18,7 @@ function App() {
 
       </header>
       <main>
-        {createCards()}
+        <ul className='cardList'>{createCards()}</ul>
       </main>
     </>
   )

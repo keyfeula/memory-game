@@ -5,6 +5,13 @@
     color: #000000;
     border-radius: 5px;
     box-shadow: 3px 5px 6px #00000055;
+    list-style-type: none;
+}
+
+.card:focus,
+.card:hover {
+    box-shadow: 0 0 15px #0684de;
+    outline: none;
 }
 
 img {

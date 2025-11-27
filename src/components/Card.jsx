@@ -27,7 +27,11 @@ export function Card({id}) {
     }, [])
 
     return (
-        <li className="card">
+        <li 
+            className="card" 
+            tabIndex={0}
+            role="button"
+        >
             <figure>
                 <img src={pkmnData.img} alt={pkmnData.name} />
                 <figcaption>{pkmnData.name}</figcaption>
