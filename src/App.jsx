@@ -15,6 +15,7 @@ function App() {
             [shuffledList[i], shuffledList[swapIndex]] = [shuffledList[swapIndex], shuffledList[i]];
         }
         setPkmnList([...shuffledList]);
+        window.scrollTo(top);
     }
 
     useEffect(() => {
