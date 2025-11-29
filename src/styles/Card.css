@@ -6,6 +6,7 @@
     border-radius: 5px;
     box-shadow: 3px 5px 6px #00000055;
     list-style-type: none;
+    transition: box-shadow 400ms ease;
 }
 
 .card:focus,
