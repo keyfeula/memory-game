@@ -9,7 +9,12 @@ function App() {
     const pkmnIDs = [1, 4, 7, 152, 155, 158, 252, 255, 258, 387, 390, 393];
 
     function shuffle() {
-        
+        const shuffledList = [...pkmnList];
+        for (let i = pkmnList.length - 1; i > 0; i--) {
+            let swapIndex = Math.floor(Math.random() * (pkmnIDs.length - i));
+            [shuffledList[i], shuffledList[swapIndex]] = [shuffledList[swapIndex], shuffledList[i]];
+        }
+        setPkmnList([...shuffledList]);
     }
 
     useEffect(() => {
@@ -24,7 +29,6 @@ function App() {
                     }
 
                     const data = await response.json();
-
                     pkmnData.push({id, name: data.name, img: data.sprites.front_default});
                     setPkmnList([...pkmnData]);
                 }
@@ -44,7 +48,17 @@ function App() {
             </header>
             <main>
                 <ul className='cardList'>
-                    {pkmnList.map(({name, img, id}) => <Card key={id} name={name} img={img}></Card>)}
+                    {pkmnList.map(({id, name, img}) => {
+                        return (
+                            <Card 
+                                key={id} 
+                                name={name} 
+                                img={img}
+                                onClick={shuffle}
+                            >
+                            </Card>
+                        )
+                    })}
                 </ul>
             </main>
         </>
