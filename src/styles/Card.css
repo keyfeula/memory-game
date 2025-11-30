@@ -9,7 +9,6 @@
     transition: box-shadow 400ms ease;
 }
 
-.card:focus,
 .card:hover {
     box-shadow: 0 0 15px #0684de;
 }

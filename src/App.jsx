@@ -15,6 +15,11 @@ function App() {
             [shuffledList[i], shuffledList[swapIndex]] = [shuffledList[swapIndex], shuffledList[i]];
         }
         setPkmnList([...shuffledList]);
+    }
+
+    function cardOnClick() {
+        setScore(score + 1);
+        shuffle();
         window.scrollTo(top);
     }
 
@@ -30,13 +35,19 @@ function App() {
                     }
 
                     const data = await response.json();
-                    pkmnData.push({id, name: data.name, img: data.sprites.front_default});
-                    setPkmnList([...pkmnData]);
+                    pkmnData.push(
+                        {   
+                            id, 
+                            name: data.name, 
+                            img: data.sprites.front_default
+                        }
+                    );
                 }
                 catch(error) {
                     console.log(error.message);
                 }
             }
+            setPkmnList([...pkmnData]);
         }
 
         getData();
@@ -45,7 +56,11 @@ function App() {
     return (
         <>
             <header>
-
+                <h1>Memory Game</h1>
+                <div className="scoreboard">
+                    <h3>High Score: {highScore}</h3>
+                    <h3>Score: {score}</h3>
+                </div>
             </header>
             <main>
                 <ul className='cardList'>
@@ -55,7 +70,7 @@ function App() {
                                 key={id} 
                                 name={name} 
                                 img={img}
-                                onClick={shuffle}
+                                onClick={cardOnClick}
                             >
                             </Card>
                         )

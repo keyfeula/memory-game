@@ -4,8 +4,22 @@
     box-sizing: border-box;
 }
 
-main {
-    padding: min(8%, 2rem);
+main, header {
+    padding: 1rem min(8%, 2rem);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header > * {
+    flex: 1;
+}
+
+h3 {
+    text-align: end;
 }
 
 .cardList {
