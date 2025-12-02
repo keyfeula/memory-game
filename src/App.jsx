@@ -6,6 +6,7 @@ function App() {
     const [pkmnList, setPkmnList] = useState([]);
     const [score, setScore] = useState(0);
     const [highScore, setHighScore] = useState(0);
+    const [clickedPkmnList, setClickedPkmnList] = useState([]);
     const pkmnIDs = [1, 4, 7, 152, 155, 158, 252, 255, 258, 387, 390, 393];
 
     function shuffle() {
@@ -17,10 +18,32 @@ function App() {
         setPkmnList([...shuffledList]);
     }
 
-    function cardOnClick() {
-        setScore(score + 1);
+    function cardOnClick(event) {    
+        const clickedId = event.target.closest(".card").id;
+        if (clickedPkmnList.includes(clickedId)) {
+            gameOver();
+        }
+        else {
+            const newScore = score + 1;
+            if (newScore > highScore) {
+                setHighScore(newScore);
+            }
+            setScore(newScore);
+            setClickedPkmnList([...clickedPkmnList, clickedId]);
+        }
         shuffle();
         window.scrollTo(top);
+    }
+
+    function cardOnKeydown(event) {
+        if (event.key === "Enter") {
+            cardOnClick(event);
+        }
+    }
+
+    function gameOver() {
+        setClickedPkmnList([]);
+        setScore(0);
     }
 
     useEffect(() => {
@@ -58,8 +81,8 @@ function App() {
             <header>
                 <h1>Memory Game</h1>
                 <div className="scoreboard">
-                    <h3>High Score: {highScore}</h3>
-                    <h3>Score: {score}</h3>
+                    <h2>High Score: {highScore}</h2>
+                    <h2>Score: {score}</h2>
                 </div>
             </header>
             <main>
@@ -67,10 +90,12 @@ function App() {
                     {pkmnList.map(({id, name, img}) => {
                         return (
                             <Card 
-                                key={id} 
+                                key={id}
+                                id={id}
                                 name={name} 
                                 img={img}
                                 onClick={cardOnClick}
+                                onKeyDown={cardOnKeydown}
                             >
                             </Card>
                         )
