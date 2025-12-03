@@ -2,6 +2,11 @@ html {
   font-family: system-ui, sans-serif;
 }
 
+:root {
+  --main-bg-color: #373737;
+  --card-bg-color: #0684de;
+}
+
 body {
-  background-color: #373737;
+  background-color: var(--main-bg-color);
 }

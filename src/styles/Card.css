@@ -1,25 +1,31 @@
 .card {
-    min-width: 12rem;
+    min-width: 6rem;
     padding: 1rem;
-    background-color: #ffffff;
+    background-color: var(--card-bg-color);
     color: #000000;
     border-radius: 5px;
-    box-shadow: 3px 5px 6px #00000055;
+    box-shadow: 3px 5px 6px #00000044;
     list-style-type: none;
-    transition: box-shadow 400ms ease;
+    transition: transform 400ms ease;
 }
 
 .card:hover {
-    box-shadow: 0 0 15px #0684de;
+    transform: scale(1.05);
+}
+
+.card:focus {
+    transform: none;
 }
 
 .card:focus-visible {
-    outline: 2px solid #0684de;
+    outline: 2px solid var(--card-bg-color);
 }
 
 img {
     max-width: 100%;
     height: auto;
+    background-color: white;
+    border-radius: 5px;
 }
 
 figure {
@@ -30,4 +36,5 @@ figure {
 figcaption {
     text-align: center;
     font-size: 1.2rem;
+    color: white;
 }

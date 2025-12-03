@@ -5,17 +5,17 @@
 }
 
 main, header {
-    padding: 1rem min(8%, 2rem);
+    padding: 1rem min(6%, 2rem);
+    color: white;
 }
 
-header {
+.scoreboard {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-header > * {
-    flex: 1;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
 h2 {
@@ -26,4 +26,10 @@ h2 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
     gap: 1.5rem;
+}
+
+@media (max-width: 550px) {
+    .cardList {
+        grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+    }
 }

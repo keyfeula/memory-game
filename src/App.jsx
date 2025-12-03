@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
 import { Card } from './components/Card';
 import './App.css';
 
@@ -79,11 +80,14 @@ function App() {
     return (
         <>
             <header>
-                <h1>Memory Game</h1>
-                <div className="scoreboard">
-                    <h2>High Score: {highScore}</h2>
-                    <h2>Score: {score}</h2>
+                <div className='scoreboard'>
+                    <h1>Memory Game</h1>
+                    <div>
+                        <h2>High Score: {highScore}</h2>
+                        <h2>Score: {score}</h2>
+                    </div>
                 </div>
+                <p>Get points by clicking images but don't click the same one more than once</p>
             </header>
             <main>
                 <ul className='cardList'>
