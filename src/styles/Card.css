@@ -6,19 +6,11 @@
     border-radius: 5px;
     box-shadow: 3px 5px 6px #00000044;
     list-style-type: none;
-    transition: transform 400ms ease;
-}
-
-.card:hover {
-    transform: scale(1.05);
-}
-
-.card:focus {
-    transform: none;
+    transition: transform 1s ease;
 }
 
 .card:focus-visible {
-    outline: 2px solid var(--card-bg-color);
+    outline: 2px solid var(white);
 }
 
 img {
