@@ -6,7 +6,7 @@ import './App.css';
 function App() {
     const [pkmnList, setPkmnList] = useState([]);
     const [score, setScore] = useState(0);
-    const [highScore, setHighScore] = useState(0);
+    const [highScore, setHighScore] = useState(localStorage.getItem("highScore") || 0);
     const [clickedPkmnList, setClickedPkmnList] = useState([]);
     const pkmnIDs = [1, 4, 7, 152, 155, 158, 252, 255, 258, 387, 390, 393];
 
@@ -28,6 +28,7 @@ function App() {
             const newScore = score + 1;
             if (newScore > highScore) {
                 setHighScore(newScore);
+                localStorage.setItem("highScore", newScore);
             }
             setScore(newScore);
             setClickedPkmnList([...clickedPkmnList, clickedId]);
